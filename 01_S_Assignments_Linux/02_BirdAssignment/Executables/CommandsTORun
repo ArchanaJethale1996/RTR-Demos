@@ -1,0 +1,8 @@
+g++ -fPIC -o 3DShape.o -c 3DShape.cpp
+g++ -shared -o lib3DShapesAJ.so 3DShape.o
+sudo mv lib3DShapesAJ.so /usr/lib/
+sudo ldconfig
+g++ -o Main.o -c Main.cpp
+g++ -o List.o -c List.cpp
+g++ -o Demo Main.o List.o -lX11 -lGL -lGLEW -lopenal -laudio -l3DShapesAJ
+ 
